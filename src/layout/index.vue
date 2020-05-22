@@ -1,42 +1,38 @@
 <template>
-  <el-container>
-    <el-aside width="200px">Aside</el-aside>
-    <el-container>
-      <el-header>Header</el-header>
-      <el-main>
-          <div class="hei">
+  <div class="d-flex flex-column">
+    <!-- 头部 -->
+    <my-header class="header" >
+      <my-tags />
+    </my-header>
+    
 
-          </div>
-      </el-main>
-    </el-container>
-  </el-container>
+    <div class="d-flex container">
+      <!-- 侧边导航 -->
+      <my-aside class="bg-primary" />
+      <!-- 主体内容 -->
+      <my-main class="main" />
+    </div>
+  </div>
 </template>
 
 <script>
-export default {};
+import { myHeader, myAside, myMain, myTags } from "./components";
+export default {
+  components: {
+    myHeader,
+    myAside,
+    myMain,
+    myTags
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-.el-header {
-  background-color: #b3c0d1;
-  color: #333;
+.header {
+  background-color: #253143;
+  color: aliceblue;
 }
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
- 
-}
-  .el-container {
-  height: 100%;
-}
-.hei{
-    height: 3000px;
-    background-color: red;
+.main {
+  background-color: #f0f0f0;
 }
 </style>

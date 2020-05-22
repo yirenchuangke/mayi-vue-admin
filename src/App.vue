@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<style lang="scss" scped>
+<style lang="scss">
 #app{
-  height: 100%;
+ height: calc(100%);
 }
 </style>
