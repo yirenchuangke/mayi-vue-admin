@@ -6,6 +6,21 @@ const routes = [
     name: "home",
     component: Home,
     meta: { title: "首页" },
+    redirect: "/index",
+    children: [
+      {
+        path: "index",
+        name: "index",
+        component: () => import("../pages/index/index"),
+        meta: { title: "首页" },
+      },
+    ],
+  },
+  {
+    path: "/index",
+    name: "index2",
+    component: Home,
+    meta: { title: "首页" }
   },
   {
     path: "/stair-1",

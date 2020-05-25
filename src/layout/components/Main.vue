@@ -1,7 +1,10 @@
 <template>
   <div class="wb-100 my_main content" :style="`height:${height}`">
     <el-backtop target=".content"></el-backtop>
-    <router-view />
+ 
+      <router-view />
+     
+
   </div>
 </template>
 <script>
@@ -32,5 +35,6 @@ export default {
 .my_main {
   overflow: hidden;
   overflow-y: auto;
+  padding: 15px;
 }
 </style>

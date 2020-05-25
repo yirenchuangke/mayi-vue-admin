@@ -1231,3 +1231,6 @@ body {
 .span24-24 {
   width: 100%;
 }
+.cp{
+  cursor: pointer;
+}
