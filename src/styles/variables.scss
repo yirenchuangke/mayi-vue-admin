@@ -1,0 +1,20 @@
+$base-color-white: #ffffff; // ! 基础颜色
+$base-color-header: $base-color-white; // ! 头部背景色
+$base-menu-background: #001529; // ! 菜单背景颜色
+$base-box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); // ! 盒子阴影设置
+$base-color-primary: #409eff; // ! elementui主题颜色
+$base-z-index: 999;
+$base-color-gray: rgba(0, 0, 0, 0.65); // ! 回到顶部
+// todo 菜单配置
+$base-left-menu-width: 220px; // ! 菜单展开宽度
+$base-left-menu-width-min: 65px; // ! 菜单关闭宽度
+$base-menu-background-active: $base-color-primary; // ! 菜单激活主题背景颜色
+$base-menu-color: hsla(0, 0%, 100%, 0.95); // ! 菜单字体颜色
+$base-menu-color-active: hsla(0, 0%, 100%, 0.95); // !  左侧菜单选中颜色
+/* stylelint-disable */
+:export {
+  base-color-white: $base-color-white;
+  menu-background: $base-menu-background;
+  menu-color: $base-menu-color;
+  menu-color-active: $base-menu-color-active;
+}
