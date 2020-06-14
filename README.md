@@ -13,7 +13,7 @@ npm install --registry=https://registry.npm.taobao.org
 
 ### 开发模式
 ```
-npm run dev
+npm run serve
 ```
 
 ### 生产模式
