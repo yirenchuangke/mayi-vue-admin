@@ -8,14 +8,41 @@
       <p>介绍：本项目是码蚁工匠(刘双龙)开发，主要组件以MY为前缀命名，欢迎大家的提意见，本人电话：13522002566（微信同步）</p>
       <p>码蚁Vue+element+admin后台管理框架</p>
       <p>作者：刘双龙</p>
-      <p>网名：一人创客 / 码蚁工匠</p>
-      <p>代码惯用前缀：my</p>
+      <p>网名：一人创客 / 码蚁工</p>
+      <p>A模块的name: {{ name }}</p>
+      <p>{{ anameLength }}</p>
+
+      <button @click="hello">点我调用 hello</button>
+      <button @click="world">点我调用 world</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
+export default {
+  computed: {
+    // ...mapState(['a']),
+    ...mapState("moduleA", ["name"]),
+    ...mapGetters("moduleA", ["anameLength"])
+    // ...mapGetters(['anameLength', 'bnameLength'])
+    // name () {
+    //   return this.$store.state.a.name
+    // }
+  },
+  methods: {
+    
+    // ...mapMutations("b", ["hello"]), //要记得将自己是哪个模块带上不让找不到
+    ...mapActions("moduleB", ["world"]),
+    // world () {
+    //   this.$store.dispatch('b/world')
+    // }
+    // ...mapActions(['world'])
+    hello () {
+      this.$store.commit('moduleA/hello')
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
