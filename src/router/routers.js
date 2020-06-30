@@ -40,7 +40,7 @@ const routes = [
         path: "demo02",
         name: "demo02",
         component: () => import("../pages/demo02"),
-        meta: { title: "菜单二" },
+        meta: { title: "地图" },
       },
     ],
   },

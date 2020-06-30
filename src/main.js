@@ -3,6 +3,17 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import VueAMap  from 'vue-amap';  //注意不要和 AMap原始名称覆盖
+Vue.use(VueAMap);
+// 初始化vue-amap
+VueAMap.initAMapApiLoader({
+  // 高德的key
+  key: '8a3be66a87f222e62bd170522f30dadf',
+  // 插件集合
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor','AMap.Geolocation'],
+  v: '1.4.4'
+     
+});
 
 import "./plugins";
 // 引入公共样式
