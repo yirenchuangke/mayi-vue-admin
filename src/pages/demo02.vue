@@ -22,7 +22,7 @@
         ></el-amap-marker>
       </el-amap>
     </div>
-    <!-- <div class="adrs">
+    <div class="adrs">
       <ul>
         <li
           class
@@ -35,7 +35,7 @@
           <p class="nm">{{item.name}}</p>
         </li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -57,6 +57,7 @@ export default {
               me.zoom = 16;
               me.makerConf.position = result;
               me.getList(result);
+              console.log(result,5)
             }
           });
           //去掉logo
@@ -64,6 +65,7 @@ export default {
             "none";
         },
         dragend: function(e) {
+          
           var point = this.getCenter();
           var pos = [point.lng, point.lat];
           me.makerConf.position = [point.lng, point.lat];
@@ -79,7 +81,6 @@ export default {
         citylimit: true
       },
       plugin: [
-         
         "Scale",
         {
           pName: "Geolocation",
@@ -95,6 +96,7 @@ export default {
                 location: point
               };
               me.list = [obj];
+              console.log(obj,7)
               me.makerConf.position = [point.lng, point.lat];
             },
             error: function() {}
@@ -106,9 +108,15 @@ export default {
   created() {
     var me = this;
   },
+  watch: {
+    center(a) {
+       console.log(a)
+    } 
+  },
   mounted() {},
   methods: {
     select: function(item, index) {
+      console.log(1)
       var me = this;
       me.currIndex = index;
       var point = item.location;
@@ -117,6 +125,8 @@ export default {
     },
     //this.$refs.map.$$getCenter()
     getList: function(result) {
+      console.log(result,2)
+
       //获取列表
       var me = this;
       me.$Geocoder({
@@ -124,6 +134,7 @@ export default {
         success: function(res) {
           if (res.regeocode && res.regeocode.pois) {
             me.list = res.regeocode.pois;
+            console.log(res.regeocode.pois,8)
           } else {
             me.list = [];
           }
@@ -134,6 +145,7 @@ export default {
       });
     },
     onSearchResult(pois) {
+      console.log(pois,3)
       //搜索
       let latSum = 0;
       let lngSum = 0;
@@ -143,10 +155,12 @@ export default {
 
       if (pois && pois.length > 0) {
         //如果长度为1则无需转化
+        
         var poi = pois[0];
         var lng = poi["lng"];
         var lat = poi["lat"];
         me.center = [lng, lat];
+        console.log(poi,6)
         me.makerConf.position = [lng, lat];
         //me.makerConf.content = poi.name;
         me.list = pois;
@@ -156,6 +170,7 @@ export default {
     },
 
     $Geocoder(options) {
+      console.log(options,4)
       //将坐标点转化为，详细地址
       options = options || {};
       if (AMap) {
@@ -177,7 +192,6 @@ export default {
     }
   },
   watch: {
-    
     list: function() {
       this.currIndex = 0;
     }
@@ -186,10 +200,10 @@ export default {
 </script>
 
 <style>
-.el-vue-search-box-container .search-box-wrapper{
+.el-vue-search-box-container .search-box-wrapper {
   width: 100% !important;
 }
-._map{
+._map {
   clear: both;
   height: 500px;
 }

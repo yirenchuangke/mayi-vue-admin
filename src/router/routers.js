@@ -42,6 +42,12 @@ const routes = [
         component: () => import("../pages/demo02"),
         meta: { title: "地图" },
       },
+      {
+        path: "demo03",
+        name: "demo03",
+        component: () => import("../pages/demo03"),
+        meta: { title: "购物车" },
+      }
     ],
   },
 ];
